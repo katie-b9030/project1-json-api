@@ -5,6 +5,7 @@
 2. What endpoints are you planning to write? Path, method, etc.
     /getAllMovies 
         (returns all movie objects)
+        (back end for all requests as well)
     /getMovieTitles
         can filter by year, actor, or director
         (returns movie titles)
@@ -17,8 +18,10 @@
     /getFavoriteMovies
         gets user's favorite movies by cycling through array of titles and returning all objects
         (stored in array from POST)
-    
+    <- for both requests, pull in favorites file, if it exsists, and pull from/write to that. If it doesn't exist, create a new file and write to it. ->
     /addFavoriteMovie
         give the api a title, api makes sure the title matches a movie and then stores that title in an array
         (takes in a title, compares everything in lowercase)
     /addPersonalMovieRating
+        add a new piece of data with the user's personal rating of the movie
+        (takes in title and rating)
