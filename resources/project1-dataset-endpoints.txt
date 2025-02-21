@@ -1,0 +1,24 @@
+1. What dataset will your Project 1 API provide access to?
+    either https://www.kaggle.com/datasets/sooaaib/walt-disney-movies?select=disney_movies.json or the books json provided in the myCourses
+
+
+2. What endpoints are you planning to write? Path, method, etc.
+    /getAllMovies 
+        (returns all movie objects)
+    /getMovieTitles
+        can filter by year, actor, or director
+        (returns movie titles)
+    /getMovieByDetails
+        can filter by box office grossing >/< $$ or length >/< time
+        (returns movie objects)
+    /getMovieByRating
+        can filter by imdb rating or rotten tomatoes
+        (returns movie objects)
+    /getFavoriteMovies
+        gets user's favorite movies by cycling through array of titles and returning all objects
+        (stored in array from POST)
+    
+    /addFavoriteMovie
+        give the api a title, api makes sure the title matches a movie and then stores that title in an array
+        (takes in a title, compares everything in lowercase)
+    /addPersonalMovieRating
