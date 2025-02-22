@@ -20,7 +20,7 @@
         (stored in array from POST)
     <- for both requests, pull in favorites file, if it exsists, and pull from/write to that. If it doesn't exist, create a new file and write to it. ->
     /addFavoriteMovie
-        give the api a title, api makes sure the title matches a movie and then stores that title in an array
+        give the movie a title, api makes sure the title matches a movie and then stores that title in an array
         (takes in a title, compares everything in lowercase)
     /addPersonalMovieRating
         add a new piece of data with the user's personal rating of the movie

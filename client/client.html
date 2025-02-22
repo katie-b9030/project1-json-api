@@ -11,28 +11,75 @@
 <body>
     <section id="header">
         <h1>Disney Movie API</h1>
+        <a href="../resources/documentation.txt">API Documentation</a>
         <div id="selectorButtons">
 
         </div>
     </section>
     <div id="requests">
-        <section id="allMovies">
+        <section id="allMovies" class="endpoint">
 
         </section>
-        <section id="movieTitles">
-
+        <section id="movieTitles" class="endpoint">
+            <h2>Test movie titles</h2>
+            <label for="year">Year: </label>
+            <input id="yearField" type="text" name="year" />
+            <label for="actor">Actor: </label>
+            <input id="actorField" type="text" name="actor" />
+            <label for="director">Director: </label>
+            <input id="directorField" type="text" name="director" />
+            <label><input type="radio" name="method" value="GET"> GET</label>
+            <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+            <button type="submit">Send Request</button>
         </section>
-        <section id="movieDetails">
-
+        <section id="movieDetails" class="endpoint">
+            <h2>Test movie details</h2>
+            <label for="grossing">Grossing: </label>
+            <select id="grossingComp">
+                <option value=">"> > </option>
+                <option value="<">
+                    < </option>
+            </select>
+            <input id="grossingNumber" type="text" name="grossing" />
+            <label for="duration">Duration: </label>
+            <select id="durationComp">
+                <option value=">"> > </option>
+                <option value="<">
+                    < </option>
+            </select>
+            <input id="durationNumber" type="text" name="duration" />
+            <label><input type="radio" name="method" value="GET"> GET</label>
+            <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+            <button type="submit">Send Request</button>
         </section>
-        <section id="movieRating">
-
+        <section id="movieRating" class="endpoint">
+            <h2>Test movie rating</h2>
+            <label for="imdb">IMDB Rating: </label>
+            <input id="imdbField" type="text" name="imdb" />
+            <label for="rottenTomatoes">Rotten Tomatoes Rating: </label>
+            <input id="rottenTomatoesField" type="text" name="rottenTomatoes" />
+            <label><input type="radio" name="method" value="GET"> GET</label>
+            <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+            <button type="submit">Send Request</button>
         </section>
-        <section id="favoriteMovies">
-
+        <section id="favoriteMovies" class="endpoint">
+            <h2>Test favorites</h2>
+            <div id="getMovies">
+                <label><input type="radio" name="method" value="GET"> GET</label>
+                <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                <button type="submit">Send Request</button>
+            </div>
+            <div id="addMovie">
+                <label for="favTitle">Title: </label>
+                <input id="favTitleField" type="text" name="favTitle" />
+                <button type="submit">Send Request</button>
+            </div>
         </section>
-        <section id="personalMovieRating">
-
+        <section id="personalMovieRating" class="endpoint">
+            <h2>Test Rating</h2>
+            <label for="rating">Title: </label>
+            <input id="ratingField" type="text" name="rating" />
+            <button type="submit">Send Request</button>
         </section>
     </div>
     <section id="content">
