@@ -18,68 +18,112 @@
     </section>
     <div id="requests">
         <section id="allMovies" class="endpoint">
+            <h2>Test all movies</h2>
+            <form data-method="GET" action="/allMovies">
+                <label for="year">Year: </label>
+                <input id="yearField" type="text" name="year" />
+                <label for="actor">Actor: </label>
+                <input id="actorField" type="text" name="actor" />
+                <label for="director">Director: </label>
+                <input id="directorField" type="text" name="director" />
+                <label for="grossing">Grossing: </label>
+                <select id="grossingComp">
+                    <option value=">"> > </option>
+                    <option value="<">
+                        < </option>
+                </select>
+                <input id="grossingNumber" type="text" name="grossing" />
+                <label for="duration">Duration: </label>
+                <select id="durationComp">
+                    <option value=">"> > </option>
+                    <option value="<">
+                        < </option>
+                </select>
+                <input id="durationNumber" type="text" name="duration" />
+                <label for="imdb">IMDB Rating: </label>
+                <input id="imdbField" type="text" name="imdb" />
+                <label for="rottenTomatoes">Rotten Tomatoes Rating: </label>
+                <input id="rottenTomatoesField" type="text" name="rottenTomatoes" />
+                <label><input type="radio" name="method" value="GET"> GET</label>
+                <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                <button type="submit">Send Request</button>
+            </form>
 
         </section>
         <section id="movieTitles" class="endpoint">
             <h2>Test movie titles</h2>
-            <label for="year">Year: </label>
-            <input id="yearField" type="text" name="year" />
-            <label for="actor">Actor: </label>
-            <input id="actorField" type="text" name="actor" />
-            <label for="director">Director: </label>
-            <input id="directorField" type="text" name="director" />
-            <label><input type="radio" name="method" value="GET"> GET</label>
-            <label><input type="radio" name="method" value="HEAD"> HEAD</label>
-            <button type="submit">Send Request</button>
+            <form data-method="GET" action="/movieTitles">
+                <label for="year">Year: </label>
+                <input id="yearField" type="text" name="year" />
+                <label for="actor">Actor: </label>
+                <input id="actorField" type="text" name="actor" />
+                <label for="director">Director: </label>
+                <input id="directorField" type="text" name="director" />
+                <label><input type="radio" name="method" value="GET"> GET</label>
+                <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                <button type="submit">Send Request</button>
+            </form>
         </section>
         <section id="movieDetails" class="endpoint">
             <h2>Test movie details</h2>
-            <label for="grossing">Grossing: </label>
-            <select id="grossingComp">
-                <option value=">"> > </option>
-                <option value="<">
-                    < </option>
-            </select>
-            <input id="grossingNumber" type="text" name="grossing" />
-            <label for="duration">Duration: </label>
-            <select id="durationComp">
-                <option value=">"> > </option>
-                <option value="<">
-                    < </option>
-            </select>
-            <input id="durationNumber" type="text" name="duration" />
-            <label><input type="radio" name="method" value="GET"> GET</label>
-            <label><input type="radio" name="method" value="HEAD"> HEAD</label>
-            <button type="submit">Send Request</button>
+            <form data-method="GET" action="/movieByDetails">
+                <label for="grossing">Grossing: </label>
+                <select id="grossingComp">
+                    <option value=">"> > </option>
+                    <option value="<">
+                        < </option>
+                </select>
+                <input id="grossingNumber" type="text" name="grossing" />
+                <label for="duration">Duration: </label>
+                <select id="durationComp">
+                    <option value=">"> > </option>
+                    <option value="<">
+                        < </option>
+                </select>
+                <input id="durationNumber" type="text" name="duration" />
+                <label><input type="radio" name="method" value="GET"> GET</label>
+                <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                <button type="submit">Send Request</button>
+            </form>
         </section>
         <section id="movieRating" class="endpoint">
             <h2>Test movie rating</h2>
-            <label for="imdb">IMDB Rating: </label>
-            <input id="imdbField" type="text" name="imdb" />
-            <label for="rottenTomatoes">Rotten Tomatoes Rating: </label>
-            <input id="rottenTomatoesField" type="text" name="rottenTomatoes" />
-            <label><input type="radio" name="method" value="GET"> GET</label>
-            <label><input type="radio" name="method" value="HEAD"> HEAD</label>
-            <button type="submit">Send Request</button>
+            <form data-method="GET" action="/movieByRating">
+                <label for="imdb">IMDB Rating: </label>
+                <input id="imdbField" type="text" name="imdb" />
+                <label for="rottenTomatoes">Rotten Tomatoes Rating: </label>
+                <input id="rottenTomatoesField" type="text" name="rottenTomatoes" />
+                <label><input type="radio" name="method" value="GET"> GET</label>
+                <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                <button type="submit">Send Request</button>
+            </form>
         </section>
         <section id="favoriteMovies" class="endpoint">
             <h2>Test favorites</h2>
             <div id="getMovies">
-                <label><input type="radio" name="method" value="GET"> GET</label>
-                <label><input type="radio" name="method" value="HEAD"> HEAD</label>
-                <button type="submit">Send Request</button>
+                <form data-method="GET" action="/favoriteMovies">
+                    <label><input type="radio" name="method" value="GET"> GET</label>
+                    <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                    <button type="submit">Send Request</button>
+                </form>
             </div>
             <div id="addMovie">
-                <label for="favTitle">Title: </label>
-                <input id="favTitleField" type="text" name="favTitle" />
-                <button type="submit">Send Request</button>
+                <form data-method="POST" action="/addFavorite">
+                    <label for="favTitle">Title: </label>
+                    <input id="favTitleField" type="text" name="favTitle" />
+                    <button type="submit">Send Request</button>
+                </form>
             </div>
         </section>
-        <section id="personalMovieRating" class="endpoint">
+        <section id="addRating" class="endpoint">
             <h2>Test Rating</h2>
-            <label for="rating">Title: </label>
-            <input id="ratingField" type="text" name="rating" />
-            <button type="submit">Send Request</button>
+            <form data-method="POST" action="/addRating">
+                <label for="title">Title: </label>
+                <input id="titleField" type="text" name="title" />
+                <label for="rating">Rating: </label>
+                <input id="ratingField" type="text" name="rating" />
+                <button type="submit">Send Request</button>
+            </form>
         </section>
     </div>
     <section id="content">
