@@ -140,9 +140,159 @@
         const movieDetailsSection = document.querySelector('#movieDetails');
         const movieRatingSection = document.querySelector('#movieRating');
         const favoriteMoviesSection = document.querySelector('#favoriteMovies');
-        const personalRatingSection = document.querySelector('#personalMovieRating');
+        const getFavoritesSection = favoriteMoviesSection.querySelector('#getMovies');
+        const addFavoritesSection = favoriteMoviesSection.querySelector('#addMovie');
+        const personalRatingSection = document.querySelector('#addRating');
 
         const contentSection = document.querySelector('#content');
+
+        const allMoviesButton = allMoviesSection.querySelector('button');
+        const movieTitlesButton = movieTitlesSection.querySelector('button');
+        const movieDetailsButton = movieDetailsSection.querySelector('button');
+        const movieRatingButton = movieRatingSection.querySelector('button');
+        const getFavoritesButton = getFavoritesSection.querySelector('button');
+        const addFavoritesButton = addFavoritesSection.querySelector('button');
+        const personalRatingButton = personalRatingSection.querySelector('button');
+
+        const getButtons = [allMoviesButton, movieTitlesButton, movieDetailsButton, movieRatingButton, getFavoritesButton];
+        const postButtons = [addFavoritesButton, personalRatingButton];
+
+        const getData = async (e) => {
+            const form = e.target.parentElement;
+
+            const response = await fetch(form.action, {
+                method: 'GET',
+                headers: {
+                    'accept': 'application/json',
+                },
+            });
+
+            const result = await response.json();
+            console.log(result);
+
+            const dataHtml = dataToHtml(result, response.status, 'GET');
+            console.log(dataHtml);
+
+            contentSection.innerHTML = dataHtml;
+        };
+
+        const getHead = async (e) => {
+            const form = e.target.parentElement;
+
+            const response = await fetch(form.action, {
+                method: 'HEAD',
+                headers: {
+                    accept: 'application/json',
+                },
+            });
+
+            const dataHtml = dataToHtml({}, response.status, 'HEAD');
+
+            contentSection.innerHTML = dataHtml;
+        };
+
+        const dataToHtml = (data, responseStatus, responseMethod) => {
+            let dataHtml;
+            if (responseStatus === 200) {
+                dataHtml = `<h1>Selected Movies</h1>`;
+                if (responseMethod !== 'HEAD') {
+                    dataHtml += `<p>${JSON.stringify(data.message)}</p>`;
+                }
+            } else if (responseStatus === 201) {
+                dataHtml = '<h1>Created</h1>';
+                if (responseMethod !== 'HEAD') {
+                    dataHtml += `<p>Message: ${JSON.stringify(data.message)}</p>`;
+                }
+            } else if (responseStatus === 204) {
+                dataHtml = '<h1>Updated (No Content)</h1>';
+            } else if (responseStatus === 400) {
+                dataHtml = '<h1>Bad Request</h1>'
+                if (responseMethod !== 'HEAD') {
+                    dataHtml += `<p>Message: ${JSON.stringify(data.message)}</p>`;
+                }
+            } else if (responseStatus === 404) {
+                dataHtml = '<h1>Not Found</h1>'
+                if (responseMethod !== 'HEAD') {
+                    dataHtml += `<p>Message: ${v}</p>`;
+                }
+            }
+            return dataHtml;
+        };
+
+        const getDataOnClick = async (e) => {
+            e.preventDefault();
+
+            const form = e.target.parentElement;
+            let typeButtons = form.querySelectorAll('input[type="radio"]');
+            let reqType = 'GET';
+
+            typeButtons.forEach(button => {
+                console.log(button);
+                if (button.checked) {
+                    reqType = button.value;
+                }
+            });
+
+            console.log(reqType)
+
+            if (reqType === 'HEAD') {
+                await getHead(e);
+            } else {
+                await getData(e);
+            }
+        }
+
+        const sendDataOnClick = async (e) => {
+            e.preventDefault();
+
+            const form = e.target.parentElement;
+            console.log(form);
+            let bodyContent;
+
+            if (form.action === '/addFavorite') {
+                console.log(form.querySelector('#favTitleField').value);
+                bodyContent = {
+                    title: form.querySelector('#favTitleField').value
+                };
+            } else if (form.action === '/addRating') {
+                console.log(form.querySelector('#titleField').value);
+                console.log(form.querySelector('#ratingField').value);
+                bodyContent = {
+                    title: form.querySelector('#titleField').value,
+                    rating: form.querySelector('#ratingField').value,
+                };
+            }
+
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(bodyContent),
+            });
+            console.log(response);
+
+            let result;
+
+            if (response.status !== 204) {
+                result = await response.json();
+            } else {
+                result = {}
+            }
+
+            const dataHTML = dataToHtml(result, response.status, 'POST');
+
+            contentSection.innerHTML = dataHTML;
+        }
+
+        window.onload = (e) => {
+            getButtons.forEach(button => {
+                button.addEventListener('click', getDataOnClick);
+            })
+            postButtons.forEach(button => {
+                button.addEventListener('click', sendDataOnClick);
+            })
+        };
     </script>
 </body>
 
