@@ -1,15 +1,19 @@
 1.  What dataset are you using? (If not one of the provided ones, where did you get it?)
     I am using a Disney Movies JSON dataset found from https://www.kaggle.com/datasets/sooaaib/walt-disney-movies?select=disney_movies.json.
 
-2.  What work has been completed for this milestone?
-    I have created the client page, set up references to several of the sections and buttons, and started creating the client functions. I set up all html responses, have a first draft of each of the get/head functions, a skeleton for the post functions, and have a functioning 404 page.
+2.  What went right in the development of this project?
+    I was able to create my client page and establish the skeletons of my json responses with very little trouble.
 
-3.  What work is left, and how do you plan to complete it?
-    I need to polish the get functions and work on parsing my json better, refactor my code to not repeat, implement the proper functionality for creating a new json file to hold the favorites, and implement my client-side functions. I also need to refactor my post functions to handle x-www-form-urlencoded format.
-    I'm planning to try to implement everything on my own by the end of next weekend so I have time to ask questions and go to office hours before the deadline next Wednesday if I need to.
+3.  What went wrong in the development of this project?
+    I kept running into errors trying to send my post requests, and I also hit problems tyring to get query parameters to populate in my url (I ended up having to add them manually).
 
-4.  Do you have a plan for going above and beyond? If so, what is it?
-    I'm hoping to give a great enhancement css, maybe add in a css framework and make all the endpoints visible/invisible based on which button is pressed to determine which endpoint is used.
+4.  What did you learn while developing this project?
+    I learned that it's ok to ask for help, and if you're having issues with something sometimes all you need is a break and/or a new perspective.
 
-5.  If you used any borrowed code or code fragments, where did you get them from? What do the code fragments do? Where are they in your code?
-    Currently I do not have any borrowed code or fragments. Some of my code is inspired/copied from other projects we have completed, but that's it.
+5.  If you went above and beyond, how did you do so?
+    I didn't really go above and beyond, although I added a few small flares to my styling. I also have one more endpoint than required.
+
+6.  If you used any borrowed code or code fragments, where did you get them from? What do the code fragments do? Where are they in your code?
+    All borrowed code fragments are commented in my code.
+    One fragment I got from ChatGPT beause I was getting a no-param-reassign error when trying to add movie ratings (jsonResponses.js). Basically, it uses array destructuring to assign the original object plus the new parameter back to the original parsed JSON.
+    The other fragment I got from https://coryrylan.com/blog/css-tips-vertical-line-rule#:~:text=Using%20CSS%20Flexbox%2C%20we%20can,and%20fill%20the%20parent%20container (styles.css). That fragment turns my <hr> tags into vertical dividers between my flex items.
