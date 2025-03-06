@@ -20,112 +20,167 @@
         <section id="allMovies" class="endpoint">
             <h2>Test all movies</h2>
             <form data-method="GET" action="/allMovies">
-                <label for="title">Title: </label>
-                <input id="titleField" type="text" name="title" />
-                <label for="year">Year: </label>
-                <input id="yearField" type="text" name="year" />
-                <label for="actor">Actor: </label>
-                <input id="actorField" type="text" name="actor" />
-                <label for="director">Director: </label>
-                <input id="directorField" type="text" name="director" />
-                <label for="grossing">Grossing: </label>
-                <select id="grossingComp">
-                    <option value=">"> > </option>
-                    <option value="<">
-                        < </option>
-                </select>
-                <input id="grossingNumber" type="text" name="grossing" />
-                <label for="duration">Duration: </label>
-                <select id="durationComp">
-                    <option value=">"> > </option>
-                    <option value="<">
-                        < </option>
-                </select>
-                <input id="durationNumber" type="text" name="duration" />
-                <label for="imdb">IMDB Rating: </label>
-                <input id="imdbField" type="text" name="imdb" />
-                <label for="rottenTomatoes">Rotten Tomatoes Rating: </label>
-                <input id="rottenTomatoesField" type="text" name="rottenTomatoes" />
-                <label><input type="radio" name="method" value="GET"> GET</label>
-                <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                <div class="inputSection">
+                    <label for="title">Title: </label>
+                    <input id="titleField" type="text" name="title" />
+                </div>
+                <div class="inputSection">
+                    <label for="year">Year: </label>
+                    <input id="yearField" type="text" name="year" />
+                </div>
+                <div class="inputSection">
+                    <label for="actor">Actor: </label>
+                    <input id="actorField" type="text" name="actor" />
+                </div>
+                <div class="inputSection">
+                    <label for="director">Director: </label>
+                    <input id="directorField" type="text" name="director" />
+                </div>
+                <div class="inputSection">
+                    <label for="grossing">Grossing: </label>
+                    <select id="grossingComp">
+                        <option value=">"> > </option>
+                        <option value="<">
+                            < </option>
+                    </select>
+                    <input id="grossingNumber" type="text" name="grossing" />
+                </div>
+                <div class="inputSection">
+                    <label for="duration">Duration: </label>
+                    <select id="durationComp">
+                        <option value=">"> > </option>
+                        <option value="<">
+                            < </option>
+                    </select>
+                    <input id="durationNumber" type="text" name="duration" />
+                </div>
+                <div class="inputSection">
+                    <label for="imdb">IMDB Rating: </label>
+                    <input id="imdbField" type="text" name="imdb" />
+                </div>
+                <div class="inputSection">
+                    <label for="rottenTomatoes">Rotten Tomatoes Rating: </label>
+                    <input id="rottenTomatoesField" type="text" name="rottenTomatoes" />
+                </div>
+                <div class="inputSection">
+                    <label><input type="radio" name="method" value="GET"> GET</label>
+                    <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                </div>
                 <button type="submit">Send Request</button>
             </form>
 
         </section>
+        <hr>
         <section id="movieTitles" class="endpoint">
             <h2>Test movie titles</h2>
             <form data-method="GET" action="/movieTitles">
-                <label for="title">Title: </label>
-                <input id="titleField" type="text" name="title" />
-                <label for="year">Year: </label>
-                <input id="yearField" type="text" name="year" />
-                <label for="actor">Actor: </label>
-                <input id="actorField" type="text" name="actor" />
-                <label for="director">Director: </label>
-                <input id="directorField" type="text" name="director" />
-                <label><input type="radio" name="method" value="GET"> GET</label>
-                <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                <div class="inputSection">
+                    <label for="title">Title: </label>
+                    <input id="titleField" type="text" name="title" />
+                </div>
+                <div class="inputSection">
+                    <label for="year">Year: </label>
+                    <input id="yearField" type="text" name="year" />
+                </div>
+                <div class="inputSection">
+                    <label for="actor">Actor: </label>
+                    <input id="actorField" type="text" name="actor" />
+                </div>
+                <div class="inputSection">
+                    <label for="director">Director: </label>
+                    <input id="directorField" type="text" name="director" />
+                </div>
+                <div class="inputSection">
+                    <label><input type="radio" name="method" value="GET"> GET</label>
+                    <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                </div>
                 <button type="submit">Send Request</button>
             </form>
         </section>
+        <hr>
         <section id="movieDetails" class="endpoint">
             <h2>Test movie details</h2>
             <form data-method="GET" action="/movieByDetails">
-                <label for="grossing">Grossing: </label>
-                <select id="grossingComp">
-                    <option value=">"> > </option>
-                    <option value="<">
-                        < </option>
-                </select>
-                <input id="grossingNumber" type="text" name="grossing" />
-                <label for="duration">Duration: </label>
-                <select id="durationComp">
-                    <option value=">"> > </option>
-                    <option value="<">
-                        < </option>
-                </select>
-                <input id="durationNumber" type="text" name="duration" />
-                <label><input type="radio" name="method" value="GET"> GET</label>
-                <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                <div class="inputSection">
+                    <label for="grossing">Grossing: </label>
+                    <select id="grossingComp">
+                        <option value=">"> > </option>
+                        <option value="<">
+                            < </option>
+                    </select>
+                    <input id="grossingNumber" type="text" name="grossing" />
+                </div>
+                <div class="inputSection">
+                    <label for="duration">Duration: </label>
+                    <select id="durationComp">
+                        <option value=">"> > </option>
+                        <option value="<">
+                            < </option>
+                    </select>
+                    <input id="durationNumber" type="text" name="duration" />
+                </div>
+                <div class="inputSection">
+                    <label><input type="radio" name="method" value="GET"> GET</label>
+                    <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                </div>
                 <button type="submit">Send Request</button>
             </form>
         </section>
+        <hr>
         <section id="movieRating" class="endpoint">
             <h2>Test movie rating</h2>
             <form data-method="GET" action="/movieByRating">
-                <label for="imdb">IMDB Rating: </label>
-                <input id="imdbField" type="text" name="imdb" />
-                <label for="rottenTomatoes">Rotten Tomatoes Rating: </label>
-                <input id="rottenTomatoesField" type="text" name="rottenTomatoes" />
-                <label><input type="radio" name="method" value="GET"> GET</label>
-                <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                <div class="inputSection">
+                    <label for="imdb">IMDB Rating: </label>
+                    <input id="imdbField" type="text" name="imdb" />
+                </div>
+                <div class="inputSection">
+                    <label for="rottenTomatoes">Rotten Tomatoes Rating: </label>
+                    <input id="rottenTomatoesField" type="text" name="rottenTomatoes" />
+                </div>
+                <div class="inputSection">
+                    <label><input type="radio" name="method" value="GET"> GET</label>
+                    <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                </div>
                 <button type="submit">Send Request</button>
             </form>
         </section>
+        <hr>
         <section id="favoriteMovies" class="endpoint">
             <h2>Test favorites</h2>
+            <h3>Get Favorites</h3>
             <div id="getMovies">
                 <form data-method="GET" action="/favoriteMovies">
-                    <label><input type="radio" name="method" value="GET"> GET</label>
-                    <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                    <div class="inputSection">
+                        <label><input type="radio" name="method" value="GET"> GET</label>
+                        <label><input type="radio" name="method" value="HEAD"> HEAD</label>
+                    </div>
                     <button type="submit">Send Request</button>
                 </form>
             </div>
+            <h3>Add Favorite</h3>
             <div id="addMovie">
                 <form data-method="POST" action="/addFavorite">
-                    <label for="favTitle">Title: </label>
-                    <input id="favTitleField" type="text" name="favTitle" />
+                    <div class="inputSection">
+                        <label for="favTitle">Title: </label>
+                        <input id="favTitleField" type="text" name="favTitle" />
+                    </div>
                     <button type="submit">Send Request</button>
                 </form>
             </div>
         </section>
+        <hr>
         <section id="addRating" class="endpoint">
             <h2>Test Rating</h2>
             <form data-method="POST" action="/addRating">
-                <label for="title">Title: </label>
-                <input id="titleField" type="text" name="title" />
-                <label for="rating">Rating: </label>
-                <input id="ratingField" type="text" name="rating" />
+                <div class="inputSection">
+                    <label for="title">Title: </label>
+                    <input id="titleField" type="text" name="title" />
+                </div>
+                <div class="inputSection">
+                    <label for="rating">Rating: </label>
+                    <input id="ratingField" type="text" name="rating" />
+                </div>
                 <button type="submit">Send Request</button>
             </form>
         </section>
@@ -159,8 +214,92 @@
 
         const getData = async (e) => {
             const form = e.target.parentElement;
+            // add query parameters manually
 
-            const response = await fetch(form.action, {
+            let customURL = form.action;
+
+            if (form.action.endsWith('/movieTitles') || form.action.endsWith('/allMovies')) {
+                let title = form.querySelector('#titleField').value;
+                let year = form.querySelector('#yearField').value;
+                let actor = form.querySelector('#actorField').value;
+                let director = form.querySelector('#directorField').value;
+                if (title) {
+                    if (customURL.endsWith('/movieTitles') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `title=${title}`;
+                }
+                if (year) {
+                    if (customURL.endsWith('/movieTitles') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `year=${year}`;
+                }
+                if (actor) {
+                    if (customURL.endsWith('/movieTitles') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `actor=${actor}`;
+                }
+                if (director) {
+                    if (customURL.endsWith('/movieTitles') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `director=${director}`;
+                }
+            }
+            if (form.action.endsWith('/movieByDetails') || form.action.endsWith('/allMovies')) {
+                let grossComp = form.querySelector('#grossingComp').value;
+                let gross = form.querySelector('#grossingNumber').value;
+                let durComp = form.querySelector('#durationComp').value;
+                let dur = form.querySelector('#durationNumber').value;
+                if (gross) {
+                    if (customURL.endsWith('/movieByDetails') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `grossing=${grossComp}${gross}`;
+                }
+                if (dur) {
+                    if (customURL.endsWith('/movieByDetails') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `duration=${durComp}${dur}`;
+                }
+            }
+            if (form.action.endsWith('/movieByRating') || form.action.endsWith('/allMovies')) {
+                let imdb = form.querySelector('#imdbField').value;
+                let tomatoes = form.querySelector('#rottenTomatoesField').value;
+                if (imdb) {
+                    if (customURL.endsWith('/movieByRating') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `imdb=${imdb}`;
+                }
+                if (tomatoes) {
+                    if (customURL.endsWith('/movieByRating') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `tomatoes=${tomatoes}`;
+                }
+            }
+
+            const response = await fetch(customURL, {
                 method: 'GET',
                 headers: {
                     'accept': 'application/json',
@@ -246,15 +385,15 @@
             e.preventDefault();
 
             const form = e.target.parentElement;
-            console.log(form);
+            console.log(form, form.action);
             let bodyContent;
 
-            if (form.action === '/addFavorite') {
+            if (form.action.endsWith('/addFavorite')) {
                 console.log(form.querySelector('#favTitleField').value);
                 bodyContent = {
                     title: form.querySelector('#favTitleField').value
                 };
-            } else if (form.action === '/addRating') {
+            } else if (form.action.endsWith('/addRating')) {
                 console.log(form.querySelector('#titleField').value);
                 console.log(form.querySelector('#ratingField').value);
                 bodyContent = {

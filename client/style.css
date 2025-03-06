@@ -1,0 +1,44 @@
+.endpoint {
+  margin: 2rem;
+}
+
+.endpoint form {
+  display: flex;
+  flex-direction: column;
+}
+
+.endpoint form .inputSection {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+}
+
+.endpoint form input,
+.endpoint form button {
+  max-width: 10rem;
+  margin: 0 10px 0 10px;
+}
+
+.endpoint form button {
+  margin-top: 5px;
+}
+
+.endpoint form select {
+  max-width: 3rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+#requests {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* pulled from https://coryrylan.com/blog/css-tips-vertical-line-rule#:~:text=Using%20CSS%20Flexbox%2C%20we%20can,and%20fill%20the%20parent%20container. */
+hr {
+  min-height: 100%;
+  max-height: 100vh;
+  margin: 0;
+}
