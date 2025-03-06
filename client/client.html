@@ -17,6 +17,7 @@
         </div>
     </section>
     <div id="requests">
+        <!-- Test all movies endpoint-->
         <section id="allMovies" class="endpoint">
             <h2>Test all movies</h2>
             <form data-method="GET" action="/allMovies">
@@ -71,6 +72,7 @@
 
         </section>
         <hr>
+        <!-- Test Movie Titles Endpoint -->
         <section id="movieTitles" class="endpoint">
             <h2>Test movie titles</h2>
             <form data-method="GET" action="/movieTitles">
@@ -98,6 +100,7 @@
             </form>
         </section>
         <hr>
+        <!-- Test Movie Details Endpoint -->
         <section id="movieDetails" class="endpoint">
             <h2>Test movie details</h2>
             <form data-method="GET" action="/movieByDetails">
@@ -127,6 +130,7 @@
             </form>
         </section>
         <hr>
+        <!-- Test Movie Rating Endpoint -->
         <section id="movieRating" class="endpoint">
             <h2>Test movie rating</h2>
             <form data-method="GET" action="/movieByRating">
@@ -146,6 +150,7 @@
             </form>
         </section>
         <hr>
+        <!-- Test Favorite Movies Endpoint -->
         <section id="favoriteMovies" class="endpoint">
             <h2>Test favorites</h2>
             <h3>Get Favorites</h3>
@@ -170,6 +175,7 @@
             </div>
         </section>
         <hr>
+        <!-- Test Rating Endpoint -->
         <section id="addRating" class="endpoint">
             <h2>Test Rating</h2>
             <form data-method="POST" action="/addRating">
@@ -185,11 +191,13 @@
             </form>
         </section>
     </div>
+    <!-- Content section (filled by code) -->
     <section id="content">
 
     </section>
 
     <script>
+        // endpoints
         const allMoviesSection = document.querySelector('#allMovies');
         const movieTitlesSection = document.querySelector('#movieTitles');
         const movieDetailsSection = document.querySelector('#movieDetails');
@@ -199,8 +207,10 @@
         const addFavoritesSection = favoriteMoviesSection.querySelector('#addMovie');
         const personalRatingSection = document.querySelector('#addRating');
 
+        // content
         const contentSection = document.querySelector('#content');
 
+        // buttons
         const allMoviesButton = allMoviesSection.querySelector('button');
         const movieTitlesButton = movieTitlesSection.querySelector('button');
         const movieDetailsButton = movieDetailsSection.querySelector('button');
@@ -209,20 +219,26 @@
         const addFavoritesButton = addFavoritesSection.querySelector('button');
         const personalRatingButton = personalRatingSection.querySelector('button');
 
+        // button arrays for dynamic event listener assignment
         const getButtons = [allMoviesButton, movieTitlesButton, movieDetailsButton, movieRatingButton, getFavoritesButton];
         const postButtons = [addFavoritesButton, personalRatingButton];
 
+        // gets data based on url
         const getData = async (e) => {
             const form = e.target.parentElement;
-            // add query parameters manually
 
             let customURL = form.action;
 
+            // add query parameters based on which section you're in
+            // if you're in movie Titles or all moveis
             if (form.action.endsWith('/movieTitles') || form.action.endsWith('/allMovies')) {
+                // get input values
                 let title = form.querySelector('#titleField').value;
                 let year = form.querySelector('#yearField').value;
                 let actor = form.querySelector('#actorField').value;
                 let director = form.querySelector('#directorField').value;
+
+                // add query params based on what inputs have values and whether there are other params
                 if (title) {
                     if (customURL.endsWith('/movieTitles') || customURL.endsWith('/allMovies')) {
                         customURL += '?'
@@ -256,11 +272,14 @@
                     customURL += `director=${director}`;
                 }
             }
+            // if you're in movie details or all moveis
             if (form.action.endsWith('/movieByDetails') || form.action.endsWith('/allMovies')) {
+                // get input values
                 let grossComp = form.querySelector('#grossingComp').value;
                 let gross = form.querySelector('#grossingNumber').value;
                 let durComp = form.querySelector('#durationComp').value;
                 let dur = form.querySelector('#durationNumber').value;
+                // add query params based on what inputs have values and whether there are other params
                 if (gross) {
                     if (customURL.endsWith('/movieByDetails') || customURL.endsWith('/allMovies')) {
                         customURL += '?'
@@ -278,9 +297,12 @@
                     customURL += `duration=${durComp}${dur}`;
                 }
             }
+            // if you're in movie rating or all moveis
             if (form.action.endsWith('/movieByRating') || form.action.endsWith('/allMovies')) {
+                // get input values
                 let imdb = form.querySelector('#imdbField').value;
                 let tomatoes = form.querySelector('#rottenTomatoesField').value;
+                // add query params based on what inputs have values and whether there are other params
                 if (imdb) {
                     if (customURL.endsWith('/movieByRating') || customURL.endsWith('/allMovies')) {
                         customURL += '?'
@@ -315,10 +337,105 @@
             contentSection.innerHTML = dataHtml;
         };
 
+        // return head data
         const getHead = async (e) => {
             const form = e.target.parentElement;
 
-            const response = await fetch(form.action, {
+            let customURL = form.action;
+
+            // add query parameters based on which section you're in
+            // if you're in movie Titles or all moveis
+            if (form.action.endsWith('/movieTitles') || form.action.endsWith('/allMovies')) {
+                // get input values
+                let title = form.querySelector('#titleField').value;
+                let year = form.querySelector('#yearField').value;
+                let actor = form.querySelector('#actorField').value;
+                let director = form.querySelector('#directorField').value;
+
+                // add query params based on what inputs have values and whether there are other params
+                if (title) {
+                    if (customURL.endsWith('/movieTitles') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `title=${title}`;
+                }
+                if (year) {
+                    if (customURL.endsWith('/movieTitles') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `year=${year}`;
+                }
+                if (actor) {
+                    if (customURL.endsWith('/movieTitles') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `actor=${actor}`;
+                }
+                if (director) {
+                    if (customURL.endsWith('/movieTitles') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `director=${director}`;
+                }
+            }
+            // if you're in movie details or all moveis
+            if (form.action.endsWith('/movieByDetails') || form.action.endsWith('/allMovies')) {
+                // get input values
+                let grossComp = form.querySelector('#grossingComp').value;
+                let gross = form.querySelector('#grossingNumber').value;
+                let durComp = form.querySelector('#durationComp').value;
+                let dur = form.querySelector('#durationNumber').value;
+                // add query params based on what inputs have values and whether there are other params
+                if (gross) {
+                    if (customURL.endsWith('/movieByDetails') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `grossing=${grossComp}${gross}`;
+                }
+                if (dur) {
+                    if (customURL.endsWith('/movieByDetails') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `duration=${durComp}${dur}`;
+                }
+            }
+            // if you're in movie rating or all moveis
+            if (form.action.endsWith('/movieByRating') || form.action.endsWith('/allMovies')) {
+                // get input values
+                let imdb = form.querySelector('#imdbField').value;
+                let tomatoes = form.querySelector('#rottenTomatoesField').value;
+                // add query params based on what inputs have values and whether there are other params
+                if (imdb) {
+                    if (customURL.endsWith('/movieByRating') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `imdb=${imdb}`;
+                }
+                if (tomatoes) {
+                    if (customURL.endsWith('/movieByRating') || customURL.endsWith('/allMovies')) {
+                        customURL += '?'
+                    } else {
+                        customURL += '&'
+                    }
+                    customURL += `tomatoes=${tomatoes}`;
+                }
+            }
+
+            const response = await fetch(customURL, {
                 method: 'HEAD',
                 headers: {
                     accept: 'application/json',
@@ -330,8 +447,10 @@
             contentSection.innerHTML = dataHtml;
         };
 
+        // convert data to html for content section
         const dataToHtml = (data, responseStatus, responseMethod) => {
             let dataHtml;
+            // check response status and respond accordingly
             if (responseStatus === 200) {
                 dataHtml = `<h1>Selected Movies</h1>`;
                 if (responseMethod !== 'HEAD') {
@@ -358,6 +477,7 @@
             return dataHtml;
         };
 
+        // event listener for get/head requests
         const getDataOnClick = async (e) => {
             e.preventDefault();
 
@@ -381,6 +501,7 @@
             }
         }
 
+        // event listener for post requests
         const sendDataOnClick = async (e) => {
             e.preventDefault();
 
@@ -424,6 +545,8 @@
             contentSection.innerHTML = dataHTML;
         }
 
+
+        // dynamically assign event listeners
         window.onload = (e) => {
             getButtons.forEach(button => {
                 button.addEventListener('click', getDataOnClick);
